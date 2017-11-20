@@ -1,0 +1,96 @@
+[
+  {
+    "tag": "header",
+    "attributs": {
+      "class": "main_header"
+    },
+    "bindings": null,
+    "children":[
+      {
+        "tag": "a",
+        "attributs": {
+          "href": "index.html"
+        },
+        "bindings": "",
+        "children":[
+          {
+            "tag": "img",
+            "attributs": {
+              "class": "logo",
+              "id": "logo",
+              "src": "/Users/Zyigh/Desktop/cheesy.png"
+            },
+            "bindings": "",
+            "children":[]
+          }
+        ]
+      }, {
+        "tag": "nav",
+        "attributs": {},
+        "bindings": "",
+        "children":[
+          {
+            "tag": "ul",
+            "attributs": {},
+            "bindings": "",
+            "children":[
+              {
+                "tag": "li",
+                "attributs": {},
+                "bindings": "Pif",
+                "children":[]
+              },{
+                "tag": "li",
+                "attributs": {},
+                "bindings": "Paf",
+                "children":[]
+              },{
+                "tag": "li",
+                "attributs": {},
+                "bindings": "Pouf",
+                "children":[]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }, {
+    "tag": "main",
+    "attributs": {
+      "class": "main_class"
+    },
+    "bindings": "",
+    "children":[
+      {
+        "tag": "section",
+        "attributs": {
+          "class":"fake_article"
+        },
+        "bindings": "",
+        "children":[
+          {
+            "tag": "h2",
+            "attributs": {},
+            "bindings": "Mon Titre de Section",
+            "children":[]
+          }, {
+            "tag": "article",
+            "attributs": {
+              "binder": 8
+            },
+            "bindings": "",
+            "children":[]
+          }
+        ]
+      }
+    ]
+  }, {
+    "tag": "footer",
+    "attributs": {
+      "class": "main_footer"
+    },
+    "bindings": "",
+    "children":[]
+  }
+]
