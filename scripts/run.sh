@@ -4,4 +4,4 @@ else
 	port="8000"
 fi
 	
-php -S localhost:"$port" # -t "`dirname $0`/index.html"
+php -S localhost:"$port" -t ./example/

@@ -1,0 +1,25 @@
+{
+  "name": "parser",
+  "version": "1.0.0",
+  "description": "Simple parser for school exercise",
+  "main": "index.js",
+  "scripts": {
+    "start": "./scripts/run.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zyigh/Parser.git"
+  },
+  "keywords": [
+    "parser",
+    "json",
+    "html"
+  ],
+  "author": "Olivia, Wilsai & Zyigh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zyigh/Parser/issues"
+  },
+  "homepage": "https://github.com/Zyigh/Parser#readme"
+}
