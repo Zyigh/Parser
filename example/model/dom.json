@@ -1,21 +1,21 @@
 [
   {
     "tag": "header",
-    "attributs": {
+    "attributes": {
       "class": "main_header"
     },
-    "bindings": null,
+    "bindings": "",
     "children":[
       {
         "tag": "a",
-        "attributs": {
+        "attributes": {
           "href": "index.html"
         },
         "bindings": "",
         "children":[
           {
             "tag": "img",
-            "attributs": {
+            "attributes": {
               "class": "logo",
               "id": "logo",
               "src": "/Users/Zyigh/Desktop/cheesy.png"
@@ -26,27 +26,27 @@
         ]
       }, {
         "tag": "nav",
-        "attributs": {},
+        "attributes": {},
         "bindings": "",
         "children":[
           {
             "tag": "ul",
-            "attributs": {},
+            "attributes": {},
             "bindings": "",
             "children":[
               {
                 "tag": "li",
-                "attributs": {},
+                "attributes": {},
                 "bindings": "Pif",
                 "children":[]
               },{
                 "tag": "li",
-                "attributs": {},
+                "attributes": {},
                 "bindings": "Paf",
                 "children":[]
               },{
                 "tag": "li",
-                "attributs": {},
+                "attributes": {},
                 "bindings": "Pouf",
                 "children":[]
               }
@@ -57,26 +57,26 @@
     ]
   }, {
     "tag": "main",
-    "attributs": {
+    "attributes": {
       "class": "main_class"
     },
     "bindings": "",
     "children":[
       {
         "tag": "section",
-        "attributs": {
+        "attributes": {
           "class":"fake_article"
         },
         "bindings": "",
         "children":[
           {
             "tag": "h2",
-            "attributs": {},
+            "attributes": {},
             "bindings": "Mon Titre de Section",
             "children":[]
           }, {
             "tag": "article",
-            "attributs": {
+            "attributes": {
               "binder": 8
             },
             "bindings": "",
@@ -87,7 +87,7 @@
     ]
   }, {
     "tag": "footer",
-    "attributs": {
+    "attributes": {
       "class": "main_footer"
     },
     "bindings": "",
