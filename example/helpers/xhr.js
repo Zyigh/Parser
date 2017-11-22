@@ -25,9 +25,9 @@
                     }
                 }
             }
-
             if (!httpRequest) {
                 alert('Abandon :( Impossible de créer une instance XMLHTTP');
+
                 return false;
             }
 
@@ -49,7 +49,7 @@
                                 rej('Error occured. Xhr status code : ' + xhr.status);
                             }
                         }
-                        if (1 === xhr.readyState) {
+                        if (3 > xhr.readyState) {
                             console.log('processing...');
                         }
                     };

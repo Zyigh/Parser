@@ -2,10 +2,6 @@
     window.Parser = new Parser();
 
     function Parser() {
-        var that = this;
-
-        this.xhr = window.xhr;
-
         this.test = function () {
             console.log('ça marche');
         };
@@ -26,9 +22,8 @@
 
         return {
             parse : function (start_point, json_path) {
-                that.xhr.get_resources(json_path)
+                xhr.get_resources(json_path)
                     .then(function (html) {
-
                         html.forEach(function (node) {
                             start_point.appendChild(display(node));
                         });
