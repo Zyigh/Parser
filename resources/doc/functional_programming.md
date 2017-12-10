@@ -1,17 +1,20 @@
-<H1>La programmation fonctionnelle</h1>
+# La programmation fonctionnelle
 
-<ul>
-    <li>Higher-order functions</li>
-    <li>Lazy evaluation</li>
-    <li>Equations</li>
-    <li>Pattern matching</li>
-    <li>Strong-static typing and type inference</li>
-    <li>Data abstraction</li>
-</ul>
+* Higher-order functions
+* Lazy evaluation
+* Equations
+* Pattern matching
+* Strong-static typing and type inference
+* Data abstraction
 
-<p>Programmer au moyen d'expressions plutôt que d'instructions</p>
-<p>Spécifier des calculs récursivement plutôt qu'itérativement</p>
-<p>Chaque expression peut être remplacée par son résultat sans changer le comportement du programme</p>
-<p>Programmation fonctionnelle pure : sans effets de bords, avec transparence référentielle</p>
-<p>Fonctions de première classe : type fonction, constantes fonction, opérateur sur les fonctions</p>
-<p>Programs can be written quicker, are more concise, are higher level </p>
+Programmer au moyen d'expressions plutôt que d'instructions
+
+Spécifier des calculs récursivement plutôt qu'itérativement
+
+Chaque expression peut être remplacée par son résultat sans changer le comportement du programme
+
+Programmation fonctionnelle pure : sans effets de bords, avec transparence référentielle
+
+Fonctions de première classe : type fonction, constantes fonction, opérateur sur les fonctions
+
+Programs can be written quicker, are more concise, are higher level

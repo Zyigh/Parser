@@ -13,7 +13,7 @@
            }
            tag.innerHTML = html_node.bindings;
 
-           html_node.children.forEach(function (child) {
+           html_node.children.map(function (child) {
               tag.appendChild(display(child));
            });
 
@@ -24,7 +24,7 @@
             parse : function (start_point, json_path) {
                 xhr.get_resources(json_path)
                     .then(function (html) {
-                        html.forEach(function (node) {
+                        html.map(function (node) {
                             start_point.appendChild(display(node));
                         });
                     });
