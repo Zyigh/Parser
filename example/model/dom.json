@@ -18,7 +18,7 @@
             "attributes": {
               "class": "logo",
               "id": "logo",
-              "src": "/Users/Zyigh/Desktop/cheesy.png"
+              "src": "./assets/taylor_swift_cantante_americana_2048x1152.jpg"
             },
             "bindings": "",
             "children":[]

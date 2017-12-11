@@ -6,11 +6,180 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Example</title>
+    <style type="text/css">
+    	img {
+    		max-width: 250px;
+    	}
+    </style>
 </head>
 <body>
 
 <script type="application/javascript" src="./helpers/xhr.js"></script>
 <script type="application/javascript" src="./parser/parser.js"></script>
 <script type="application/javascript" src="controller/mainController.js"></script>
+<script type="text/javascript">
+	function imperative_factoriel(int) {
+		var result = 1;
+		while (int >= 1) {
+			result *= int--;
+		}
+
+		return result;
+	}
+
+	function functional_factoriel(int) {
+		if (int === 1) {
+
+			return int;
+		}
+
+		return int * functional_factoriel(int - 1);
+	}
+
+	function imperative_fibonnacci(limit) {
+		var start = [0, 1];
+		var i = 0;
+		while (i < limit) {
+			start[i + 2] = start[i] + start[i+1];
+			i++;
+		}
+
+		return start;
+	}
+</script>
+<script type="text/javascript">
+	function getRandomInt(min, max) {
+    	return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+	var max = 100000000;
+	var unsorted_array = [];
+	for (var i = 0; i <= max; i++) {
+		unsorted_array.push(getRandomInt(0, max));
+	}
+
+
+	function bubble_sort(arr) {
+		var limit = arr.length;
+		for (var i = limit; i > 0; i--) {
+			for (var j = 0; j < i; j++) {
+				if (arr[j] > arr[j+1]) {
+					arr[j] =  arr[j] ^  arr[j+1];
+					arr[j+1] =  arr[j] ^  arr[j+1];
+					arr[j] =  arr[j] ^  arr[j+1];
+				}
+			}
+		}
+
+		return arr;
+	}
+
+	function realShell(array, gap) {
+		var length = array.length;
+		var limit = length - 1;
+		gap = Math.floor(gap / 2);
+		var i = 0;
+		while (gap >= 1) {
+			while (i < length) {
+				var j = i + gap;
+				if (j < length) {
+					if (array[i] > array[j]) {
+						while ((array[j] < array[j-gap]) && (j > 0)){
+							array[j-gap] = array[j-gap] ^ array[j];
+							array[j] = array[j-gap] ^ array[j];
+							array[j-gap] = array[j-gap] ^ array[j];
+							j = j - gap;
+						}
+					}
+				}
+				i++;
+			}
+			gap = Math.floor(gap / 2);
+			i = 0;
+		}	
+
+		return array;
+	}
+
+	function shell(arr) {
+
+		return realShell(arr, arr.length);
+	}
+
+	function functional_quick_sort(arr) {
+		var length = arr.length;
+		var left = [];
+		var right = [];
+		var pivot = [arr[0]]; // Array(arr[0])
+
+		if (length <= 1) {
+
+			return arr;
+		}
+
+		for (var i = 1; i < length; i++) {
+			if (arr[i] < pivot[0]) {
+				left.push(arr[i]);
+			} else {
+				right.push(arr[i]);
+			}
+		}
+		
+		return functional_quick_sort(left).concat(pivot, functional_quick_sort(right));
+	}
+
+	function functional_merge_sort(arr) {
+		var length = arr.length;
+		if (length < 2) {
+
+			return arr;
+		} else {
+			var mid = Math.floor(length / 2);
+			var left = functional_merge_sort(arr.slice(0, mid));
+			var right = functional_merge_sort(arr.slice(mid, length));
+			var left_len = left.length;
+			var right_len = right.length;
+			var sorted = [];
+
+			var i = 0;
+			var j = 0;
+			while (i < left_len && j < right_len) {
+				if (left[i] < right[j]) {
+					sorted.push(left[i]);
+					i++;
+				} else {
+					sorted.push(right[j]);
+					j++;
+				}
+			}
+
+			if (i < left_len) {
+				sorted = sorted.concat(left.slice(i, left_len));
+			} else{
+				sorted = sorted.concat(right.slice(j, right_len));
+			}
+
+			return sorted;
+		}
+	}
+
+	var start = Date.now();
+	var sorted = functional_merge_sort(unsorted_array);
+	var stop = Date.now();
+	console.log('merge : ', sorted, (stop - start));
+	start = Date.now();
+	var sorted = functional_quick_sort(unsorted_array);
+	stop = Date.now();
+	console.log('quick : ', sorted, (stop - start));
+	// This is a mess...
+	// var sorted = bubble_sort(unsorted_array);
+	// stop = Date.now();
+	// console.log('bubble : ', sorted, (stop - start)/1000);
+	// 
+	// Better...
+	//var start = Date.now();
+	//var sorted = shell(unsorted_array);
+	//var stop = Date.now();
+	//console.log('shell : ', sorted, (stop - start));	
+</script>
 </body>
 </html>

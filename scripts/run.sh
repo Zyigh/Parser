@@ -6,4 +6,4 @@ else
 	port="8000"
 fi
 	
-php -S localhost:"$port" -t ./example/
+php -S localhost:"$port" -t ../example/
