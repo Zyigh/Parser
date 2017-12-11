@@ -1,4 +1,4 @@
-# La programmation fonctionnelle
+#La programmation fonctionnelle
 
 * Higher-order functions
 * Lazy evaluation
@@ -7,14 +7,13 @@
 * Strong-static typing and type inference
 * Data abstraction
 
-Programmer au moyen d'expressions plutôt que d'instructions
 
-Spécifier des calculs récursivement plutôt qu'itérativement
+* Programmer au moyen d'expressions plutôt que d'instructions
+* Spécifier des calculs récursivement plutôt qu'itérativement
+* Chaque expression peut être remplacée par son résultat sans changer le comportement du programme
+* Programmation fonctionnelle pure : sans effets de bords, avec transparence référentielle
+* Fonctions de première classe : type fonction, constantes fonction, opérateur sur les fonctions
+* Programs can be written quicker, are more concise, are higher level
 
-Chaque expression peut être remplacée par son résultat sans changer le comportement du programme
-
-Programmation fonctionnelle pure : sans effets de bords, avec transparence référentielle
-
-Fonctions de première classe : type fonction, constantes fonction, opérateur sur les fonctions
-
-Programs can be written quicker, are more concise, are higher level
+* Variable libre : variable non bindée dans une fonction.
+* Une fonction pure est une fonction qui, avec un input donné, retournera toujours le même output sans effet de bord
