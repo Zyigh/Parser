@@ -13,12 +13,13 @@
     </style>
 </head>
 <body>
-
+</body>
 <script type="application/javascript" src="./helpers/xhr.js"></script>
 <script type="application/javascript" src="./parser/parser.js"></script>
-<script type="application/javascript" src="controller/mainController.js"></script>
-<script type="text/javascript">
-	function imperative_factoriel(int) {
+<script type="application/javascript" src="./controller/mainController.js"></script>
+<script type="application/javascript" src="./helpers/presets.js"></script>
+<script type="application/javascript">
+	function iterativeFactoriel(int) {
 		var result = 1;
 		while (int >= 1) {
 			result *= int--;
@@ -27,17 +28,22 @@
 		return result;
 	}
 
-	function functional_factoriel(int) {
+	function functionalFactoriel(int) {
 		if (int === 1) {
 
-			return int;
+			return 1;
 		}
 
-		return int * functional_factoriel(int - 1);
+		return int * functionalFactoriel(int - 1);
 	}
 
-	function imperative_fibonnacci(limit) {
-		var start = [0, 1];
+	// timer(iterativeFactoriel(88), 'Factoriel iteratif : ');
+	// timer(functionalFactoriel(88), 'Factoriel fonctionnel : ');
+
+	var seed = [0,1];
+	var limit = 15;
+
+	function iterativeFibonacci(array, limit) {
 		var i = 0;
 		while (i < limit) {
 			start[i + 2] = start[i] + start[i+1];
@@ -46,19 +52,24 @@
 
 		return start;
 	}
+
+	function functionalFibonacci(array, limit) {
+		var last_index = array.length - 1;
+		var next_value = array[last_index] + array[last_index - 1];
+		if (limit > 0) {
+
+			return functionalFibonacci(array.concat(next_value), --limit);
+		}
+
+		return array;
+	}
+
+	// timer(iterativeFibonacci(seed, limit), 'Suite de Fibonacci itérative : ');
+	// timer(functionalFibonacci(seed, limit), 'Suite de Fibonacci fonctionnel : ');
+
 </script>
 <script type="text/javascript">
-	function getRandomInt(min, max) {
-    	return Math.floor(Math.random() * (max - min + 1)) + min;
-	}
-	var max = 100000000;
-	var unsorted_array = [];
-	for (var i = 0; i <= max; i++) {
-		unsorted_array.push(getRandomInt(0, max));
-	}
-
-
-	function bubble_sort(arr) {
+	function bubbleSort(arr) {
 		var limit = arr.length;
 		for (var i = limit; i > 0; i--) {
 			for (var j = 0; j < i; j++) {
@@ -105,11 +116,11 @@
 		return realShell(arr, arr.length);
 	}
 
-	function functional_quick_sort(arr) {
+	function functionalQuickSort(arr) {
 		var length = arr.length;
 		var left = [];
 		var right = [];
-		var pivot = [arr[0]]; // Array(arr[0])
+		var pivot = arr[0]; // Array(arr[0])
 
 		if (length <= 1) {
 
@@ -117,25 +128,25 @@
 		}
 
 		for (var i = 1; i < length; i++) {
-			if (arr[i] < pivot[0]) {
+			if (arr[i] < pivot) {
 				left.push(arr[i]);
 			} else {
 				right.push(arr[i]);
 			}
 		}
 		
-		return functional_quick_sort(left).concat(pivot, functional_quick_sort(right));
+		return functionalQuickSort(left).concat(pivot, functionalQuickSort(right));
 	}
 
-	function functional_merge_sort(arr) {
+	function functionalMergeSort(arr) {
 		var length = arr.length;
 		if (length < 2) {
 
 			return arr;
 		} else {
 			var mid = Math.floor(length / 2);
-			var left = functional_merge_sort(arr.slice(0, mid));
-			var right = functional_merge_sort(arr.slice(mid, length));
+			var left = functionalMergeSort(arr.slice(0, mid));
+			var right = functionalMergeSort(arr.slice(mid, length));
 			var left_len = left.length;
 			var right_len = right.length;
 			var sorted = [];
@@ -162,24 +173,79 @@
 		}
 	}
 
-	var start = Date.now();
-	var sorted = functional_merge_sort(unsorted_array);
-	var stop = Date.now();
-	console.log('merge : ', sorted, (stop - start));
-	start = Date.now();
-	var sorted = functional_quick_sort(unsorted_array);
-	stop = Date.now();
-	console.log('quick : ', sorted, (stop - start));
-	// This is a mess...
-	// var sorted = bubble_sort(unsorted_array);
-	// stop = Date.now();
-	// console.log('bubble : ', sorted, (stop - start)/1000);
-	// 
-	// Better...
-	//var start = Date.now();
-	//var sorted = shell(unsorted_array);
-	//var stop = Date.now();
-	//console.log('shell : ', sorted, (stop - start));	
+	// timer(functionalMergeSort(unsorted_array), 'Merge sort : ');
+	// timer(functionalQuickSort, 'Quick sort : ');
+	//
+	// console.log('Le tableau originel n\'a pas changé : ', unsorted_array);
+	
+	// timer(bubbleSort(unsorted_array), 'Bubble sort : ');
+	// timer(shell(unsorted_array), 'Shell sort : ');
+	//
+	// console.log('Le tableau originel a changé : ', unsorted_array);
+
 </script>
-</body>
+<script type="text/javascript">
+	function iterativeBinarySearch(searchElement, array){
+	    var minIndex = 0;
+	    var maxIndex = array.length - 1;
+	    var currentIndex;
+	    var currentElement;
+	    var found = false;
+
+	    var it = 0;
+	 
+	    while (minIndex <= maxIndex) {
+	    	it++;
+	        currentIndex = (minIndex + maxIndex) / 2 | 0;
+	        currentElement = array[currentIndex];
+	 
+	        if (currentElement < searchElement) {
+	            minIndex = currentIndex + 1;
+	        }
+	        else if (currentElement > searchElement) {
+	            maxIndex = currentIndex - 1;
+	        }
+	        else {
+	        	found = !found;
+	        	console.log(it);
+
+	            return (searchElement + ' at index ' + currentIndex);
+	        }
+	    }
+	    console.log(it);
+
+	    return (searchElement + ' not found');
+	}
+
+	function search(el, arr, min, max) {
+		var current = Math.floor((min + max)/2);
+		if (arr[current] === el) {
+
+			return (el + ' at index ' + current);
+		}
+		if (min > max) {
+
+			return el + ' not found';
+		}
+		if (arr[current] > el){
+
+			return search(el, arr, min, current - 1);
+		} else {
+
+			return search(el, arr, current + 1, max);
+		}
+	}
+
+	function functionalBinarySearch(searchElement, array) {
+		var minIndex = 0;
+		var maxIndex = array.length - 1;
+
+		return search(searchElement, array, minIndex, maxIndex);
+	}
+
+	// var sorted = unsorted_array.sort();
+	// var searchElement = getRandomInt(0, max);
+	// timer(iterativeBinarySearch(searchElement, sorted), 'Tri dichotomique itératif : ');
+	// timer(functionalBinarySearch(searchElement, sorted), 'Tri dichotomique fonctionnel');
+</script>
 </html>
