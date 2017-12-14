@@ -31,7 +31,7 @@
                 return false;
             }
 
-            return httpRequest
+            return httpRequest;
         }
 
         this.get_resources = function(json_path) {
@@ -50,7 +50,7 @@
                             }
                         }
                         if (3 > xhr.readyState) {
-                            console.log('processing...');
+                            //console.log('processing...');
                         }
                     };
                     xhr.send();

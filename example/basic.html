@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bonjourre !</title>
+	<style type="text/css">
+		.hidden {
+			display: none !important;
+		}
+		body {
+			text-align: center;
+			width: 80%;
+			margin: 0 auto;
+			background: #DDD;
+		}
+		div {
+			margin: 15px 0;
+			text-align: left;
+		}
+		.code {
+			background: #222;
+			color: white;
+			font-weight: 600;
+			
+		}
+	</style>
+</head>
+<body>
+	<h1>Functional Programing</h1>
+	<div id="1">
+		5! = 5 * 4 * 3 * 2 * 1
+		<hr>
+	</div>
+	<div id="2" class="hidden code">
+		<code>
+		function factoriel(n) { <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;resultat = 1<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<b>Tant que</b> n > 1 :<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resultat = resultat * n<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n = n-1<br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;return resultat<br>
+		}
+		</code>
+		<hr>
+	</div>
+	<div id="3" class="hidden">
+		1! = 1
+		<hr>
+	</div>
+	<div id="4" class="hidden">
+		5! = 5 * 4 * 3 * 2 * 1<br>
+		4! = 4 * 3 * 2 * 1<br>
+		1! = 1
+		<hr>
+	</div>
+	<div id="5" class="hidden code">
+		<code>
+			function factoriel(n) {<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<b>SI</b> n = 1 :<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 1 <br>
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;return n * factoriel (n-1)<br> 
+			}
+		</code>	
+		<hr>
+	</div>
+	<div id="6" class="hidden">
+		<img src="./assets/kanye-citation.png" width="100%">
+	</div>
+</body>
+<script type="text/javascript">
+	var i = 1;
+	window.addEventListener('click', function(){
+		document.getElementById(++i).classList.remove('hidden');
+	});
+</script>
+</html>
