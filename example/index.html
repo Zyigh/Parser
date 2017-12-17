@@ -28,9 +28,9 @@
 		return result;
 	}
 
-	function functionalFactoriel(int) {
+	function funFact(int) {
 
-		return int === 1 ? 1 : int * functionalFactoriel(int - 1);
+		return int === 1 ? int : int * funFact(int - 1);
 	}
 
 	// timer(iterativeFactoriel(88), 'Factoriel iteratif : ');
