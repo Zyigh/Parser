@@ -29,18 +29,14 @@
 	}
 
 	function functionalFactoriel(int) {
-		if (int === 1) {
 
-			return 1;
-		}
-
-		return int * functionalFactoriel(int - 1);
+		return int === 1 ? 1 : int * functionalFactoriel(int - 1);
 	}
 
 	// timer(iterativeFactoriel(88), 'Factoriel iteratif : ');
 	// timer(functionalFactoriel(88), 'Factoriel fonctionnel : ');
-	timer(iterativeFactoriel(8), 'Factoriel iteratif : ');
-	timer(functionalFactoriel(8), 'Factoriel fonctionnel : ');
+	// timer(iterativeFactoriel(8), 'Factoriel iteratif : ');
+	// timer(functionalFactoriel(8), 'Factoriel fonctionnel : ');
 
 	var seed = [0,1];
 	var limit = 15;
